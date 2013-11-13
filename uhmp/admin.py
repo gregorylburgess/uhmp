@@ -1,6 +1,6 @@
-from megawatt.models import Card,Player,PointSet
+from uhmp.models import Parking, Area
 from django.contrib import admin
 
-admin.site.register(Card)
-admin.site.register(Player)
-admin.site.register(PointSet)
+admin.site.register(Parking)
+admin.site.register(Area)
+
