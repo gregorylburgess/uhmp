@@ -1,0 +1,66 @@
+<div id="scoreboard">
+		<div id="phase_box"> 
+		<a href=#  id="next_button"><img src="{{STATIC_URL}}img/next.jpg"></img></a>
+			{% for phase, letter, active in phases%}
+				<div class="phase_label">
+				{% if active %} 
+				<b><font color="green">
+					{{phase}}
+				</font></b>
+				{% else %}
+				<div class="phase_label">{{phase}}</div>
+				{%endif%}
+				</div>
+			{% endfor %}
+		</div>	
+	</br>
+	<div class="nrg_label">
+		<font color="Red"><b>
+			NRG_GOAL:{{nrg_goal}}
+		</b></font>
+	</div>
+</div>
+
+
+<div id="p1_field" class="field p1">
+<div>P1 Field</div>
+	{% for id, card in cards.items %}
+		{%if card.field = 'p1_field' %}
+		<div id="{{card.id}}" class="card">
+			<div id="{{card.id}}-name" class="name">{{card.name}}</div>
+			<div id="{{card.id}}-img" class="card-img">
+				<img src="{{card.image}}"></img>
+			</div>
+		</div>
+		{% endif%}
+	{% endfor %}
+</div>
+
+<div id="neutral_field" class="field">
+<div>Neutral Field</div>
+	{% for id, card in cards.items %}
+		{%if card.field = 'neutral_field' %}
+		<div id="{{card.id}}" class="card">
+			<div id="{{card.id}}-name" class="name">{{card.name}}</div>
+			<div id="{{card.id}}-img" class="card-img">
+				<img src="{{card.image}}"></img>
+			</div>
+		</div>
+		{% endif%}
+	{% endfor %}
+</div>
+
+<div id="p2_field" class="field p2">
+<div>P2 Field</div>
+	{% for id, card in cards.items %}
+		{%if card.field = 'p2_field' %}
+		<div id="{{card.id}}" class="card">
+			<div id="{{card.id}}-name" class="name">{{card.name}}</div>
+			<div id="{{card.id}}-img" class="card-img">
+				<img src="{{card.image}}"></img>
+			</div>
+		</div>
+		{% endif%}
+	{% endfor %}
+	
+</div>

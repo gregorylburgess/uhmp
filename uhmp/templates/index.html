@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% block title %}
+	MegaWatt
+{% endblock title %}
+
+{% block content %}
+	<div id="left" class="panel">
+		{% include "left.html" %}
+	</div>
+	
+	<div id="center" class="panel">
+		{% include "center.html" %}
+	</div>
+	
+	<div id="right" class="panel">
+		{% include "right.html" %}
+	</div>
+{% endblock content %}

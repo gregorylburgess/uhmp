@@ -1,0 +1,72 @@
+
+<div id ="p1_hand" class="hand">
+	<div>P1 Hand</div>
+		<div id="p1_overlay" class="overlay">
+		<div>P1_Hand</div>
+			{% for id, card in cards.items %}
+		{%if card.field = 'p1_hand' %}
+		<div id="{{card.id}}" class="card">
+			<div id="{{card.id}}-name" class="name">{{card.name}}</div>
+			<div id="{{card.id}}-img" class="card-img">
+				<img src="{{card.image}}"></img>
+			</div>
+		</div>
+		{% endif%}
+	{% endfor %}
+	</div>
+</div>
+
+<div id="e_gen_deck" class="deck">
+	<div>E_Gen Deck</div>
+	<a href="#">
+	<div id="e_gen_menu" class="menu">
+				<center>Draw Cards</center>
+	</div>
+	</a>
+</div>
+
+<div id="tactical_deck" class="deck">
+	<div>Tactical Deck</div>
+	<a href="#">
+	<div id="tactical_menu" class="menu">
+				<center>Draw Cards</center>
+	</div>
+	</a>
+</div>
+
+<div id ="p2_hand" class="hand">
+	<div>P2 Hand</div>
+	<div id="p2_overlay" class="overlay">
+	<div>P2_Hand </div>
+		{% for id, card in cards.items %}
+		{%if card.field = 'p2_hand' %}
+		<div id="{{card.id}}" class="card">
+			<div id="{{card.id}}-name" class="name">{{card.name}}</div>
+			<div id="{{card.id}}-img" class="card-img">
+				<img src="{{card.image}}"></img>
+			</div>
+		</div>
+		{% endif%}
+	{% endfor %}
+	
+	</div>
+</div>
+
+<script>
+$("#e_gen_menu").hide();
+$("#tactical_menu").hide();
+
+$("#e_gen_deck").hover(function(){$("#e_gen_menu").fadeIn()},function(){$("#e_gen_menu").fadeOut()});
+$("#tactical_deck").hover(function(){$("#tactical_menu").fadeIn()},function(){$("#tactical_menu").fadeOut()});
+
+$("#e_gen_menu").click(function(){$("#e_gen_menu").fadeOut()});
+$("#tactical_menu").click(function(){$("#tactical_menu").fadeOut()});
+
+$("#p1_overlay").hide();
+$("#p2_overlay").hide();
+
+$("#p1_hand").hover(function(){$("#p1_overlay").fadeIn(300)},function(){});
+$("#p2_hand").hover(function(){$("#p2_overlay").fadeIn(300)},function(){});
+$("#p1_overlay").hover(function(){},function(){$("#p1_overlay").fadeOut(300)});
+$("#p2_overlay").hover(function(){},function(){$("#p2_overlay").fadeOut(300)});
+</script>

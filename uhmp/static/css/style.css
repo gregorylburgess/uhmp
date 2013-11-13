@@ -1,0 +1,192 @@
+
+body {
+	background: #000;
+	width:100%;
+	height: 550px;
+	color: #fff;
+	display: block;
+	float: left;
+	font-family: "Arial", sans-serif;
+}
+
+#center {
+	width: 55%;
+}
+
+#left {
+	width: 27%;
+}
+
+#left #preview {
+	width:100%;
+	height: 81.5%;
+	background: #333;
+	margin: 8px 0px;
+}
+
+#p1_overlay {
+	position: absoloute;
+	top: 0px;
+	right: 0px;
+	z-index: 10000;
+}
+
+#p2_overlay{
+	position: absoloute;
+	bottom: 0px;
+	right: 0px;
+	z-index: 10000;
+}
+
+#phase_box {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#right {
+	width: 14%;
+}
+
+#scoreboard {
+	height: 7%;
+	width: 80%;
+	margin-bottom: 10px;
+	margin-left:10%;
+	padding: .5% 0px;
+	background: #333;
+	display: block;
+	float: left;
+}
+
+#next_button {
+	float:right;
+	display: block;
+	width:8%;
+	height:100%;
+}
+
+#next_button img{
+	width: 70%;
+	float:right;
+}
+#neutral_field {
+	margin: 8px 0px;
+}
+
+.card {
+	float:left;
+	height: 40%;
+	width: 10%;
+	margin-bottom: 4px;
+}
+
+.card-img img{
+	background: #444;
+	width: 70%;
+	height: auto;
+}
+
+.deck {
+	height: 33.3%;
+	background: #333333;
+	margin: 6px 0px;
+}
+
+.field {
+	width: 100%;
+	height: 27.75%;
+	padding: .5% 0px;
+	background: #333;
+	float: left;
+}
+
+.hand {
+	height: 15%;
+	widht: 100%;
+	background: #333333;
+	margin: .5% 0px;
+}
+
+.menu {
+	background: #555555;
+	height: 50%;
+	padding-top: 40%;
+}
+
+.menu{
+	font-size: 15pt;
+	color: white;
+}
+
+.nrg_label {
+	width: 170px;
+	font-size: 12pt;
+	margin: 0 auto;
+}
+@media (max-width: 853px){
+	.nrg_label {
+		font-size:9pt;
+	}
+}
+.overlay {
+    position: fixed;
+    width: 50%;
+    height: 20%;
+    background-color: #666666;
+    z-index: 10000;
+}
+
+.pane {
+	background:#222;
+	height: 100%;
+	margin: .5%;
+	float: left;
+	display: block;
+}
+
+.phase_label {
+	display: block;
+	float: left;
+	margin: 0px 5px;
+	font-size: 9pt;
+}
+
+.points {
+	width:100%;
+	height: 8%;
+	background: #333;
+}
+
+.pointbox {
+	width: 100%;
+	background: #444444;
+}
+
+.point_label {
+	width: 30px;
+	display: block;
+	float: left;
+	height: 100%;
+	background: #222;
+	color: #fff;
+	margin-right: 12px;
+}
+.preview-name {
+	face: bold;
+	font-size: 20pt;
+}
+.preview-img {
+	width: 80%;
+	margin: 0% 10%;
+	height: 40%;;
+}
+
+.small-img {
+	display: block;
+	float: left;
+	margin-right: 3px;
+	height: 23px;
+	width: 23px;
+}
+
+

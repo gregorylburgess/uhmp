@@ -1,0 +1,25 @@
+<div id="p1_points" class="p1 points">
+<div>P1 Score</div>
+	<div class="pointbox">
+		{% for type, image, point in p1 %}
+			<img src="{{STATIC_URL}}{{image}}" class="small-img"></img>
+			<input id = "p1_{{type}}" class="point_label" type="textbox" value="{{point}}"></input>
+		{% endfor %}
+	</div>
+</div>
+
+<div id="preview" class="fullspan">
+<div id="preview-name" class="preview-name"></div>
+<img id="preview-img" class="preview-img" src=""></img>
+<div id="preview-text" class="preveiw-text"></div>
+</div>
+
+<div id="p2_points" class="p2 points">
+<div>P2 Score</div>
+	<div class="pointbox">
+		{% for type, image, point in p2 %}
+			<img src="{{STATIC_URL}}{{image}}" class="small-img"></img>
+			<input id = "p2_{{type}}" class="point_label" type="textbox" value="{{point}}"></input>
+		{% endfor %}
+	</div>
+</div>
