@@ -5,11 +5,27 @@ from django.template import RequestContext
 from uhmp.settings import STATIC_URL
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-def index(request):
-    
+
+def status(request):
     return render_to_response(
-              'index.html',
+              'status.html',
               {
                'STATIC_URL': STATIC_URL
-               })
+               }
+    )
     
+def graph(request):    
+    return render_to_response(
+              'graph.html',
+              {
+               'STATIC_URL': STATIC_URL
+               }
+    )
+
+def lelist(request):    
+    return render_to_response(
+              'lelist.html',
+              {
+               'STATIC_URL': STATIC_URL
+               }
+    )
