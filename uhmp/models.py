@@ -3,7 +3,8 @@ from django.db import models
 class Parking(models.Model):
     name = models.CharField(max_length=200)
     areas = []
-    status = ("Open", "Permit Only", "Full")
+    STATUS_CHOICES = (("Open", "Open"), ("Permit Only", "Permit Only"), ("Full", "Full"))
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="Open")
     fullness = models.IntegerField()
     permitOnlyThreshold = models.IntegerField()
     maxStalls = models.IntegerField()

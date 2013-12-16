@@ -8,24 +8,39 @@
 	<div id="content" class="container">
 		<div id="status" class="row window">
 			<div class="span12 titlebar">Status</div>
-			<div class="statusPane">
-				<div class="namePane">
-					<div class="zoneName">name</div><div class="statusBox">status</div>
+			{% for zone in Parking %}
+			<div class="paneStatus {{zone.status}}">
+				<div class="paneName">
+					<div class="zoneName">{{zone.name}}</div><div class="statusBox {{zone.status}}">{{zone.status}}</div>
 				</div>
-				</br></br><button type="button" class="btn btn-primary">Update</button>
+				</br></br>
+				<!-- Modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update</button>
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">How Is {{zone.name}}?</h4>
+								</div>
+								<div class="modal-body">
+									{% for name, val in choices %}
+									<div class="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="{{val}}" value="{{val}}" checked>
+											{{val}}
+										</label>
+									</div>
+									{% endfor %}
+									</br>
+									<button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary spacer-right pull-right">Save changes</button>
+								</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
 			</div>
-			<div class="statusPane">
-				<div class="namePane">
-					<div class="zoneName">name</div><div class="statusBox">status</div>
-				</div>
-				</br></br><button type="button" class="btn btn-primary">Update</button>
-			</div>
-			<div class="statusPane">
-				<div class="namePane">
-					<div class="zoneName">name</div><div class="statusBox">status</div>
-				</div>
-				</br></br><button type="button" class="btn btn-primary">Update</button>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock content %}

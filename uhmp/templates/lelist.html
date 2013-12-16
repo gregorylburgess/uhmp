@@ -10,25 +10,52 @@
 			<div class="span12 titlebar">List</div>
 			<div class="pane">
 				<label for="graphControl">Zone:</label>
-					<select id="graphControl" class="inline-form-control">
-					  <option>1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
-					  <option>2</option>
-					  <option>3</option>
-					  <option>4</option>
-					  <option>5</option>
+					<select id="listControl" class="inline-form-control">
+						{% for zone in Parking %}
+					  <option>{{zone.name}}</option>
+						{% endfor %}
 					</select>
-
-				<div id="graph" class="graphPane">
+					<script> 
+						$("#listControl").val("{{currentZone}}");
+						$("#listControl").change(function() {
+							window.location.replace("/list/" + $("#listControl").val() + "/");
+						});
+					</script>
+				<div id="graph" class="paneList">
 				<table>
 					<tr>
 						<th>Floor</th>
 						<th>Area</th>
-						<th>Available Stalls</th>
+						<th>Occupancy</th>
 					</tr>
-					<tr><td>a</td><td>a</td><td>a</td></tr>
-					<tr><td>a</td><td>a</td><td>a</td></tr>
-					<tr><td>a</td><td>a</td><td>a</td></tr>
+					{% for area in areas %}
+					<tr><td>{{area.floor}}</td><td>{{area.name}}</td><td>{{area.fullness}}%<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update</button></td></tr>
+					<!-- Modal -->
 					
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="myModalLabel">How Is {{area.name}}?</h4>
+									</div>
+									<div class="modal-body">
+										{% for name, val in choices %}
+										<div class="radio">
+											<label>
+												<input type="radio" name="optionsRadios" id="{{val}}" value="{{val}}" checked>
+												{{val}}
+											</label>
+										</div>
+										{% endfor %}
+										</br>
+										<button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary spacer-right pull-right">Save changes</button>
+									</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+					{% endfor %}
 				</div>
 			</div>
 		</div>

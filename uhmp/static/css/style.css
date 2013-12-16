@@ -40,22 +40,15 @@ tr:hover {
 	background: #1F3D7A;
 }
 
-.graphPane {
-	width: 100%;
+.modal-content {
+	margin-top: 100px;
+	background: #0a0a0a;
 }
 
-.listPane {
-	height: 100%;
+.modal fade{
+	background: #000;
+	opacity:0.1;
 }
-
-.navPane {
-	background: #333;
-	height: 100%;
-	width: 33.33%;
-	float: left;
-	display: block;
-}
-
 .pane {
 	padding: 0px 7px 7px 7px;
 	background: #111;
@@ -63,16 +56,37 @@ tr:hover {
 	height: 100%;
 }
 
-.pane:last-child, .statusPane:last-child{
+.pane:last-child, .paneStatus:last-child{
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 } 
 
-.statusPane {
+.paneGraph {
+	width: 100%;
+}
+
+.paneList {
+	height: 100%;
+}
+
+
+.paneNav {
+	background: #333;
+	height: 100%;
+	width: 33.33%;
+	float: left;
+	display: block;
+}
+
+.paneStatus {
 	padding: 0px 7px 7px 7px;
 	background: #111;
 	border-bottom: 1px solid #222; 
 	height: 87px;
+}
+
+.spacer-right {
+	margin-right: 20px;
 }
 
 .statusBox {
@@ -80,6 +94,18 @@ tr:hover {
 	display: block;
 	font-face: bold;
 	font-size: 20pt;
+}
+
+.Open {
+	background: #006600;
+}
+
+.Permit {
+	background: ##FF6600;
+}
+
+.Full {
+	background: ##CC0000;
 }
 
 .titlebar {

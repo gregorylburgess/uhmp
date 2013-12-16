@@ -3,7 +3,8 @@ from django.db import models
 class Parking(models.Model):
     name = models.CharField(max_length=200)
     areas = []
-    status = ("Open", "Permit Only", "Full")
+    STATUS_CHOICES = (("Open", "Open"), ("Permit Only", "Permit Only"), ("Full", "Full"))
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="O")
     fullness = models.IntegerField()
     permitOnlyThreshold = models.IntegerField()
     maxStalls = models.IntegerField()
@@ -18,7 +19,7 @@ class Area(models.Model):
     fullness = models.IntegerField()
     maxStalls = models.IntegerField()
     def __unicode__(self):
-        return self.name + ":" + str(self.fullness) + "%"
+        return self.name + " : " + str(self.fullness) + "%"
 
 
     
