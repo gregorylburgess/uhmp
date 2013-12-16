@@ -1,30 +1,26 @@
 
 {% extends "base.html" %}
 {% block title %}
-	UHMP: Status
+	UHMP: Graphs
 {% endblock title %}
 
 {% block content %}
 	<div id="content" class="container">
 		<div id="status" class="row window">
-			<div class="span12 titlebar">Status</div>
-			<div class="pane">
-				<div class="namePane">
-					<div class="zoneName">name</div><div class="statusBox">status</div>
+			<div class="span12 titlebar">Graphs</div>
+			<div class="graphPane">
+				<label for="graphControl">Graph:</label>
+					<select id="graphControl" class="inline-form-control">
+					  <option>1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
+					  <option>2</option>
+					  <option>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+
+				<div id="graph" class="graphPane">
+					
 				</div>
-				</br></br><button type="button" class="btn btn-primary">Update</button>
-			</div>
-			<div class="pane">
-				<div class="namePane">
-					<div class="zoneName">name</div><div class="statusBox">status</div>
-				</div>
-				</br></br><button type="button" class="btn btn-primary">Update</button>
-			</div>
-			<div class="pane">
-				<div class="namePane">
-					<div class="zoneName">name</div><div class="statusBox">status</div>
-				</div>
-				</br></br><button type="button" class="btn btn-primary">Update</button>
 			</div>
 		</div>
 	</div>

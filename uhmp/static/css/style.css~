@@ -11,9 +11,44 @@ body {
 
 button {
 	float: right;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 }
 
-.nav-pane {
+table {
+	width: 100%;
+}
+
+th {
+	background: #333;
+	width: 33%;
+}
+
+th:first-child {
+	//border-top-left-radius: 15px;
+}
+
+th:last-child {
+	//border-top-right-radius: 15px;
+}
+
+tr {
+	border-bottom: 1px solid #222;
+}
+
+tr:hover {
+	background: #1F3D7A;
+}
+
+.graphPane {
+	width: 100%;
+}
+
+.listPane {
+	height: 100%;
+}
+
+.navPane {
 	background: #333;
 	height: 100%;
 	width: 33.33%;
@@ -22,6 +57,18 @@ button {
 }
 
 .pane {
+	padding: 0px 7px 7px 7px;
+	background: #111;
+	border-bottom: 1px solid #222; 
+	height: 100%;
+}
+
+.statusPane:last-child{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+} 
+
+.statusPane {
 	padding: 0px 7px 7px 7px;
 	background: #111;
 	border-bottom: 1px solid #222; 
@@ -46,14 +93,9 @@ button {
 .window {
 	border-radius: 15px;
 	margin: 60px 5px 5px 5px;
-	border: 1px solid #aaa;
+	border: 1px solid #777;
 	display: block;
 }
-
-.pane:last-child{
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-} 
 
 .zoneName {
 	font-face: bold;
