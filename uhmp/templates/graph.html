@@ -9,14 +9,34 @@
 		<div id="status" class="row window">
 			<div class="span12 titlebar">Graphs</div>
 			<div class="paneGraph">
-				<label for="graphControl">Graph:</label>
-					<select id="graphControl" class="inline-form-control">
-					  <option>1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
-					  <option>2</option>
-					  <option>3</option>
-					  <option>4</option>
-					  <option>5</option>
+				<label for="placeControl" class="pull-left">Location:</label>
+					<select id="placeControl" class="inline-form-control pull-left">
+						{% for place in places %}
+					  <option>{{place}}</option>
+						{% endfor %}
 					</select>
+				<label for="timeControl" class="pull-left">Day:</label>
+					<select id="timeControl" class="inline-form-control pull-left">
+						{% for day in dows %}
+					  <option>{{day}}</option>
+						{% endfor %}
+					</select>
+					<button type="button" class="btn btn-primary pull-left" onClick="submit()">Update</button>
+					<script>
+					google.load("visualization", "1", {packages:["corechart"]});
+
+						function submit() {
+							var place = $("#placeControl").val();
+							var time = $("#timeControl").val();
+							$.ajax({
+								url: "../getgraph/" + place + "/" + time,
+								success: function(data) {
+								    $('#graph').html(data);
+								    drawVisualization();
+								}
+							});
+						}
+					</script>
 
 				<div id="graph" class="paneGraph">
 					
@@ -24,4 +44,5 @@
 			</div>
 		</div>
 	</div>
+
 {% endblock content %}

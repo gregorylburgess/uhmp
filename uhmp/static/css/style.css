@@ -96,16 +96,24 @@ tr:hover {
 	font-size: 20pt;
 }
 
-.Open {
+.Open, .Empty{
 	background: #006600;
 }
 
+.Half-Full {
+	background: #B88A00;
+}
+
+.Mostly-Full {
+	background: #B24700;
+}
+
 .Permit {
-	background: ##FF6600;
+	background: #B24700;
 }
 
 .Full {
-	background: ##CC0000;
+	background: #CC0000;
 }
 
 .titlebar {

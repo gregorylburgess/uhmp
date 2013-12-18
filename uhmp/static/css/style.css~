@@ -96,16 +96,24 @@ tr:hover {
 	font-size: 20pt;
 }
 
-.statusOpen {
+.Open, .empty{
 	background: #006600;
 }
 
-.statusPermit {
-	background: ##FF6600;
+.Half-Full {
+	background: #B88A00;
 }
 
-.statusFull {
-	background: ##CC0000;
+.Mostly-Full {
+	background: #B24700;
+}
+
+.Permit {
+	background: #B24700;
+}
+
+.Full, .Empty {
+	background: #CC0000;
 }
 
 .titlebar {
