@@ -78,28 +78,41 @@ def getgraph(request, place, time):
     data = None
     try:
     	obj = Parking.objects.get(name=place)
-        data = ParkingHist.objects.filter(zone=obj, hour=time)
+        data = ParkingHist.objects.filter(zone=obj, dow=time)
 
     except Parking.DoesNotExist:
         obj = Area.objects.get(name=place)
-	data = AreaHist.objects.filter(area=obj, hour=time)
+	data = AreaHist.objects.filter(area=obj, dow=time)
 
     print data.order_by('hour')
     print len(data)
     toRet = "<script>"
     toRet += "function drawVisualization() {"
     toRet += "var data = google.visualization.arrayToDataTable(["
-    toRet += "['x'],"
+    toRet += "['x', '" + obj.name + "'],"
     for point in data:
-        toRet += "['" + point.hour + "', " +  + "],"
+        toRet += "['" + str(point.hour) + "', " + translate(point.status) + "],"
     toRet += "]);"
     toRet += "new google.visualization.LineChart(document.getElementById('graph')).draw(data, {"
     toRet += "title: 'Parking Status',"
     toRet += "curveType: 'function',"
-    toRet += "width: 500, height: 400,"
+    toRet += "width: '100%', height: 400,"
+    toRet += "pointSize: 3,"
     toRet += "vAxis: {maxValue: 20}}"
     toRet += ");}</script>"
     return HttpResponse(toRet)
+
+def translate(status):
+   toRet = ""
+   if status == "Open" or status == "Empty":
+       toRet = "0"
+   elif status == "Full":
+       toRet = "100"
+   elif status == "Permit Only" or status == "Mostly-Full":
+       toRet = "75"
+   else:
+       toRet = "50"
+   return toRet
 
 
 def getCounts(objType):

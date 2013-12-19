@@ -15,6 +15,9 @@ button {
 	border-top-right-radius: 15px;
 }
 
+select {
+	margin-right: 10px;
+}
 table {
 	width: 100%;
 }
@@ -38,6 +41,13 @@ tr {
 
 tr:hover {
 	background: #1F3D7A;
+}
+
+.controlbox {
+	background: #000;
+	position: relative;
+	color: #888;
+	z-index: 1000;
 }
 
 .modal-content {
@@ -96,7 +106,7 @@ tr:hover {
 	font-size: 20pt;
 }
 
-.Open, .empty{
+.Open, .Empty{
 	background: #006600;
 }
 
@@ -112,7 +122,7 @@ tr:hover {
 	background: #B24700;
 }
 
-.Full, .Empty {
+.Full {
 	background: #CC0000;
 }
 

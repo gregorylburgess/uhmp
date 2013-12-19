@@ -9,37 +9,40 @@
 		<div id="status" class="row window">
 			<div class="span12 titlebar">Graphs</div>
 			<div class="paneGraph">
-				<label for="placeControl" class="pull-left">Location:</label>
+				<div class="controlbox">
+					<label for="placeControl" class="pull-left">Location:</label>
 					<select id="placeControl" class="inline-form-control pull-left">
 						{% for place in places %}
 					  <option>{{place}}</option>
 						{% endfor %}
 					</select>
-				<label for="timeControl" class="pull-left">Day:</label>
+					<label for="timeControl" class="pull-left">Day:</label>
 					<select id="timeControl" class="inline-form-control pull-left">
 						{% for day in dows %}
 					  <option>{{day}}</option>
 						{% endfor %}
 					</select>
 					<button type="button" class="btn btn-primary pull-left" onClick="submit()">Update</button>
-					<script>
-					google.load("visualization", "1", {packages:["corechart"]});
+				</div>
+			</div>
+			<div id="graph" class="paneGraph">
+				<div id="graphBox">
+				<script>
 
-						function submit() {
-							var place = $("#placeControl").val();
-							var time = $("#timeControl").val();
-							$.ajax({
-								url: "../getgraph/" + place + "/" + time,
-								success: function(data) {
-								    $('#graph').html(data);
-								    drawVisualization();
-								}
-							});
-						}
-					</script>
-
-				<div id="graph" class="paneGraph">
+					function submit() {
+						var place = $("#placeControl").val();
+						var time = $("#timeControl").val();
+						$.ajax({
+							url: "../getgraph/" + place + "/" + time,
+							success: function(data) {
+							    $('#graph').html(data);
+							    drawVisualization();
+							}
+						});
+					}
 					
+					google.load("visualization", "1", {packages:["corechart"]});
+				</script>
 				</div>
 			</div>
 		</div>
