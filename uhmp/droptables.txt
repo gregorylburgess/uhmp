@@ -1,0 +1,13 @@
+sql='''BEGIN;
+DROP TABLE "uhmp_areahist";
+DROP TABLE "uhmp_parkinghist";
+DROP TABLE "uhmp_areastatus";
+DROP TABLE "uhmp_parkingstatus";
+DROP TABLE "uhmp_area";
+DROP TABLE "uhmp_parking";
+
+COMMIT;'''
+
+from django.db import connections, transaction
+cursor = connections['default'].cursor()
+cursor.execute(sql)

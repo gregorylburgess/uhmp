@@ -7,17 +7,31 @@ body {
 	display: block;
 	float: left;
 	font-family: "Arial", sans-serif;
+	
 }
 
 button {
 	float: right;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+label {
+	margin-right: 5px;
+	margin-left: 5px;
+	font-size: 13pt;
+	padding-top: auto;
+	padding-bottom: auto;
 }
 
 select {
 	margin-right: 10px;
+	height: 30px;
+	padding-top: 3px;
 }
+
 table {
 	width: 100%;
 }
@@ -43,11 +57,26 @@ tr:hover {
 	background: #1F3D7A;
 }
 
+.btn-danger {
+	background: #CC0000;
+}
+
+.btn-primary {
+	background:  #0033CC;
+}
+
+.btn-success {
+	background:#006600;
+}
+
 .controlbox {
 	background: #000;
 	position: relative;
 	color: #888;
 	z-index: 1000;
+}
+.modal-body {
+	height: 160px;
 }
 
 .modal-content {
@@ -123,7 +152,7 @@ tr:hover {
 }
 
 .Full {
-	background: #CC0000;
+	background: #800000;
 }
 
 .titlebar {

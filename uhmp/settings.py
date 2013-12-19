@@ -1,7 +1,7 @@
 # Django settings for uhmp project.
 import os
 
-Heroku = True
+Heroku = False
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
