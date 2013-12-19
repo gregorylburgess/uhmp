@@ -15,7 +15,7 @@ class Area(models.Model):
     floor = models.CharField(max_length=200)
     status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="Empty")
     def __unicode__(self):
-        return self.name
+        return str(self.name)
 
 class ParkingStatus(models.Model):
     zone = models.ForeignKey('Parking')

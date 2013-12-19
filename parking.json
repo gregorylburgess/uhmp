@@ -1,0 +1,1 @@
+[{"pk": 2, "model": "uhmp.parking", "fields": {"status": "Open", "permitOnlyThreshold": 70, "name": "Zone 20"}}, {"pk": 3, "model": "uhmp.parking", "fields": {"status": "Open", "permitOnlyThreshold": 70, "name": "Zone 22"}}]
