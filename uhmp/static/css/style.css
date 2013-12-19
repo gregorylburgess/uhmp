@@ -72,7 +72,7 @@ tr:hover {
 .controlbox {
 	background: #000;
 	position: relative;
-	color: #888;
+	color: #fff;
 	z-index: 1000;
 }
 .modal-body {
@@ -136,23 +136,38 @@ tr:hover {
 }
 
 .Open, .Empty{
-	background: #006600;
+	//background: #006600;
+	background-image:-moz-linear-gradient(100% 10% 90deg, #000000, #008000);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #008000), color-stop(10%, #000000));
+	color: rgba(255,255,255,1);
 }
 
 .Half-Full {
-	background: #B88A00;
+	//background: #B88A00;
+	background-image:-moz-linear-gradient(100% 10% 90deg, #000000, #ffff00);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffff00), color-stop(10%, #000000));
+	color: rgba(200,200,200,.7);
 }
 
 .Mostly-Full {
-	background: #B24700;
+	//background: #B24700;
+	background-image:-moz-linear-gradient(100% 10% 90deg, #000000, #ffa500);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffa500), color-stop(10%, #000000));
+	color: rgba(150,150,150,.5);
 }
 
 .Permit {
-	background: #B24700;
+	//background: #B24700;
+	background-image:-moz-linear-gradient(100% 10% 90deg, #000000, #ffa500);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffa500), color-stop(10%, #000000));
+	color: rgba(200,200,200,.6);
 }
 
 .Full {
-	background: #990000;
+	//background: #990000;
+	background-image:-moz-linear-gradient(100% 10% 90deg, #000000, #ff0000);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff0000), color-stop(10%, #000000));
+	color: rgba(175,175,175,.3);
 }
 
 .titlebar {
@@ -166,7 +181,7 @@ tr:hover {
 .window {
 	border-radius: 15px;
 	margin: 60px 5px 5px 5px;
-	border: 1px solid #777;
+	border: 1px solid #333;
 	display: block;
 }
 

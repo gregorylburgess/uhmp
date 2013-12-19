@@ -24,12 +24,12 @@
 				<div id="graph" class="paneList">
 				<table>
 					<tr>
-						<th>Floor</th>
 						<th>Area</th>
+						<th>Floor</th>
 						<th>Occupancy</th>
 					</tr>
 					{% for area in areas %}
-					<tr class="{{area.status}}" data-toggle="modal" data-target="#myModal{{area.id}}"><td>{{area.floor}}</td><td>{{area.name}}</td><td>{{area.status}}</td></tr>
+					<tr class="{{area.status}}" data-toggle="modal" data-target="#myModal{{area.id}}"><td>{{area.name}}</td><td>{{area.floor}}</td><td>{{area.status}}</td></tr>
 					<!-- Modal -->
 					
 					<div class="modal fade" id="myModal{{area.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

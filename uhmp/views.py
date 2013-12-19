@@ -79,26 +79,37 @@ def getgraph(request, place, time):
     try:
     	obj = Parking.objects.get(name=place)
         data = ParkingHist.objects.filter(zone=obj, dow=time)
+	oType = 'parking'
 
     except Parking.DoesNotExist:
         obj = Area.objects.get(name=place)
 	data = AreaHist.objects.filter(area=obj, dow=time)
+	oType = 'area'
 
-    print data.order_by('hour')
-    print len(data)
     toRet = "<script>"
     toRet += "function drawVisualization() {"
     toRet += "var data = google.visualization.arrayToDataTable(["
-    toRet += "['x', '" + obj.name + "'],"
+    toRet += "['x', '" + obj.name + "', "
+    if oType == 'parking':
+	toRet += " 'Permit Only'"
+    toRet += "],"
     for point in data:
-        toRet += "['" + str(point.hour) + "', " + translate(point.status) + "],"
+        toRet += "['" + str(point.hour) + "', " + translate(point.status)
+	if oType == 'parking':
+     	    toRet += ", " + str(obj.permitOnlyThreshold)
+	toRet += "],"
+
     toRet += "]);"
     toRet += "new google.visualization.LineChart(document.getElementById('graph')).draw(data, {"
     toRet += "title: 'Parking Status',"
-    toRet += "curveType: 'function',"
+    toRet += "curveType: 'none',"
     toRet += "width: '100%', height: 400,"
     toRet += "pointSize: 3,"
-    toRet += "vAxis: {maxValue: 20}}"
+    toRet += "backgroundColor: 'black',"
+    toRet += "hAxis: {textStyle: { color: 'white',fontName: 'arial',fontSize: 15,bold: false,italic: false }},"
+    toRet += "vAxis: {textStyle: { color: 'white',fontName: 'arial',fontSize: 15,bold: false,italic: false }},"
+    toRet += "legend: {textStyle: { color: 'white',fontName: 'arial',fontSize: 15,bold: false,italic: false }},"
+    toRet += "vAxis: {maxValue: 90}}"
     toRet += ");}</script>"
     return HttpResponse(toRet)
 
