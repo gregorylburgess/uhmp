@@ -214,7 +214,7 @@ def storeStatus():
 	# set the zone/area's current state to the winning option
         hObj.data = repr(hist)
 
-	print hobj.name
+	print hObj.name
 	print hObj.data
         hObj.status = sorted(hist.iteritems(), key=operator.itemgetter(1))[-1][0]
 	hObj.save()
@@ -234,7 +234,7 @@ def storeStatus():
         hObj.data = hist
         hObj.status = sorted(hist.iteritems(), key=operator.itemgetter(1))[-1][0]
 	hObj.save()
-	print hobj.name
+	print hObj.name
 	print hObj.data
     return "success"
 
