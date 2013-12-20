@@ -56,7 +56,7 @@ def graph(request):
     for item in area:
 	places.append(item.name)
 
-    dows = {'Mon', 'Tue', 'Wed', 'Thr', 'Fri'}
+    dows = ['Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat', 'Sun']
     return render_to_response(
               'graph.html',
               {
