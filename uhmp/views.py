@@ -201,7 +201,7 @@ def storeStatus():
     # set the time interval to 1hr
     now = getTime()
     hour = now.hour
-    dow = now.isoweekday()
+    dow = now.isoweekday()-1
     recent = now - datetime.timedelta(minutes=58)
     print str(dow) + "  "+ str(hour)
     # request all Parking objects within the time interval
