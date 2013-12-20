@@ -6,4 +6,4 @@ class Command(BaseCommand):
     help = 'Updates the Hist Objects.'
 
     def handle(self, *args, **options):
-	views.getTime()
+	print views.getTime()
