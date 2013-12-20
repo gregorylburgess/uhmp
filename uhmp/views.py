@@ -71,19 +71,19 @@ def graph(request):
 def getgraph(request, place, time):
     time = time.lower()
     if time == "sun":
-        time=0
-    elif time =="mon":
-        time=1
-    elif time =="tue":
-        time=2
-    elif time =="wed":
-        time=3
-    elif time =="thr":
-        time=4
-    elif time =="fri":
-        time=5
-    elif time =="sat":
         time=6
+    elif time =="mon":
+        time=0
+    elif time =="tue":
+        time=1
+    elif time =="wed":
+        time=2
+    elif time =="thr":
+        time=3
+    elif time =="fri":
+        time=4
+    elif time =="sat":
+        time=5
 
     data = None
     # check if the provided place is a Parking object
@@ -104,7 +104,7 @@ def getgraph(request, place, time):
     if oType == 'parking':
 	toRet += " 'Permit Only'"
     toRet += "],"
-    for point in data:
+    for point in data.order_by('hour'):
         toRet += "['" + str(point.hour) + "', " + translate(point.status)
 	if oType == 'parking':
      	    toRet += ", " + str(obj.permitOnlyThreshold)
@@ -214,9 +214,10 @@ def storeStatus():
 	# set the zone/area's current state to the winning option
         hObj.data = repr(hist)
 
-	print hObj.zone
-	print hObj.data
+
         hObj.status = sorted(hist.iteritems(), key=operator.itemgetter(1))[-1][0]
+	print hObj.zone
+	print hObj.data + "  " + hObj.status
 	hObj.save()
     # request all Area objects within the time interval
     validEntries = AreaStatus.objects.filter(timestamp__gte=recent)
