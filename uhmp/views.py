@@ -26,6 +26,7 @@ def status(request):
 
 #request the list page
 def lelist(request, currentZone=None):
+    getCounts("area")
     #set default zone if no zone is specified
     if currentZone is not None:
 	currentZone = Parking.objects.get(name=currentZone)
@@ -177,15 +178,19 @@ def getCounts(objType):
 	if total == 0:
 	    now = getTime()
             hour = now.hour
-            dow = now.isoweekday()
+            dow = now.isoweekday()-1
+	    print dow
 	    if objType == "status":
 		hobj = ParkingHist.objects.get(zone=key, dow=dow , hour=hour)
 		places[key.name] = eval(hobj.data) 
+		print eval(hobj.data)
 	    if objType == "area":
 		hobj = AreaHist.objects.get(area=key, dow=dow , hour=hour)
 		places[key.name] = eval(hobj.data)
+		print eval(hobj.data)
 	# set the zone/area's current state to the winning option
 	places[key.name] = sorted(places[key.name].iteritems(), key=operator.itemgetter(1))
+	print places[key.name]
 	obj = keys.get(name=key.name)
 	obj.status = places[key.name][-1][0]
 	obj.save()
