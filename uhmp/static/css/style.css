@@ -57,6 +57,26 @@ tr:hover {
 	background: #1F3D7A;
 }
 
+#graph {
+	margin-top: 3vh;
+}
+
+#navbar {
+	background-image:-moz-linear-gradient(30% 100% 90deg, #111, #555);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(30%, #555), color-stop(100%, #111));
+	height:7vw;
+	margin-bottom: 1.3vh;
+}
+
+.brand {
+	float: left;
+	display: block;
+	color: #888;
+	font: bold 6vw Trebuchet MS, Helvetica, sans-serif;
+	width:23%;
+	padding-left: 3vw;
+}
+
 .btn-danger {
 	background: #CC0000;
 }
@@ -74,6 +94,8 @@ tr:hover {
 	position: relative;
 	color: #fff;
 	z-index: 1000;
+	border-bottom: 1px solid #555;
+	height: calc(70px - 1vw);
 }
 .modal-body {
 	height: 160px;
@@ -88,9 +110,17 @@ tr:hover {
 	background: #000;
 	opacity:0.1;
 }
+
+.navbtn {
+	font: bold 5vw Trebuchet MS, Helvetica, sans-serif;
+	padding-right: 2vw;
+	padding-left: 2vw;
+	color: #fff;
+}
+
 .pane {
 	padding: 0px 7px 7px 7px;
-	background: #111;
+	background: #000;
 	border-bottom: 1px solid #222; 
 	height: 100%;
 }
@@ -110,11 +140,10 @@ tr:hover {
 
 
 .paneNav {
-	background: #333;
-	height: 100%;
-	width: 33.33%;
+	padding-top: .5vw;
 	float: left;
 	display: block;
+	border-left: 1px solid #444;
 }
 
 .paneStatus {
@@ -173,14 +202,15 @@ tr:hover {
 .titlebar {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
-	background: #222;
+	background-image:-moz-linear-gradient(30% 100% 90deg, #111, #333);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(30%, #333), color-stop(100%, #111));
 	text-align: center;
 	font-size: 20pt;
 }
 
 .window {
 	border-radius: 15px;
-	margin: 60px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
 	border: 1px solid #333;
 	display: block;
 }

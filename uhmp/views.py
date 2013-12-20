@@ -114,9 +114,9 @@ def getgraph(request, place, time):
     toRet += "new google.visualization.LineChart(document.getElementById('graph')).draw(data, {"
     toRet += "title: 'Parking Status',"
     toRet += "titleTextStyle: { color: 'white',fontName: 'arial',fontSize: 20,bold: true,italic: false },"
-    toRet += "titlePosition: 'in',"
+    toRet += "titlePosition: 'out',"
     toRet += "curveType: 'none',"
-    toRet += "width: '100%', height: 400,"
+    toRet += "width: '100%', height: 500,"
     toRet += "pointSize: 3,"
     toRet += "backgroundColor: 'black',"
     toRet += "hAxis: {title: 'Hour', titleTextStyle: { color: 'white',fontName: 'arial',fontSize: 15,bold: false,italic: false }, "
@@ -283,7 +283,6 @@ def createHist(oType, ref, status, dow, hr):
         data[status] = 1
         hist.data = data
 	hist.save()
-	hist.save()
 
 
 
@@ -293,7 +292,7 @@ def initTimes():
 	parkings = Parking.objects.all()
 	areas = Area.objects.all()
 	# weekdays
-	for day in range(0,6):
+	for day in range(0,5):
 		for parking in parkings:
 			for hr in range(0,10):#0-9
 				createHist("parking", parking, 'Open', day, hr)
@@ -318,7 +317,7 @@ def initTimes():
 			for hr in range(16,24):#16-23
 				createHist("area", area, 'Empty', day, hr)
 	# weekends
-	for day in range(6,7):
+	for day in range(5,7):
 		for parking in parkings:
 			for hr in range(0,24):#0-23
 				createHist("parking", parking, 'Open', day, hr)
