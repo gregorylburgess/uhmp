@@ -292,10 +292,8 @@ def createHist(oType, ref, status, dow, hr):
 def initTimes():
 	parkings = Parking.objects.all()
 	areas = Area.objects.all()
-
-	#for parking in parkings:
-	parkingHist = dict
-	for day in range(0,7):
+	# weekdays
+	for day in range(0,6):
 		for parking in parkings:
 			for hr in range(0,10):#0-9
 				createHist("parking", parking, 'Open', day, hr)
@@ -318,4 +316,12 @@ def initTimes():
 			for hr in range(14,16):#14-15
 				createHist("area", area, 'Half-Full', day, hr)
 			for hr in range(16,24):#16-23
+				createHist("area", area, 'Empty', day, hr)
+	# weekends
+	for day in range(6,7):
+		for parking in parkings:
+			for hr in range(0,24):#0-23
+				createHist("parking", parking, 'Open', day, hr)
+		for area in areas:
+			for hr in range(0,24):#0-23
 				createHist("area", area, 'Empty', day, hr)
