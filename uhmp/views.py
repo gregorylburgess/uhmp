@@ -162,12 +162,28 @@ def getCounts(objType):
     # for each zone/area
     for key in keys:
         places[key.name] = dict()
+	total = 0
 	# count up the votes for each option
         for option, val in STATUS_CHOICES:
 	    if objType == "status":
-                places[key.name][option] = len(validEntries.filter(zone=key, status=option))
+		val = len(validEntries.filter(zone=key, status=option))
+                places[key.name][option] = val
+		total += val
 	    if objType == "area":
-                places[key.name][option] = len(validEntries.filter(area=key, status=option))
+		val = len(validEntries.filter(area=key, status=option))
+                places[key.name][option] = val
+		total += val
+	# if there are no votes, use historical data
+	if total == 0:
+	    now = getTime()
+            hour = now.hour
+            dow = now.isoweekday()
+	    if objType == "status":
+		hobj = ParkingHist.objects.get(zone=key, dow=dow , hour=hour)
+		places[key.name] = eval(hobj.data) 
+	    if objType == "area":
+		hobj = AreaHist.objects.get(area=key, dow=dow , hour=hour)
+		places[key.name] = eval(hobj.data)
 	# set the zone/area's current state to the winning option
 	places[key.name] = sorted(places[key.name].iteritems(), key=operator.itemgetter(1))
 	obj = keys.get(name=key.name)
@@ -259,7 +275,7 @@ def createHist(oType, ref, status, dow, hr):
         data[status] = 1
         hist.data = data
 	hist.save()
-
+	
     elif oType == "area":
 	hist = AreaHist(area=ref, status=status, dow=dow, hour=hr)
         for option, val in A_STATUS_CHOICES:
