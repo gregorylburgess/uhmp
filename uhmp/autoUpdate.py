@@ -1,3 +1,4 @@
-import uhmp.views
-uhmp.views.initTimes()
-
+from uhmp import views
+views.storeStatus()
+print success
+return
