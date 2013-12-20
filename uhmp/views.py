@@ -241,7 +241,7 @@ def update(request, objType, ID, status, currentZone=None):
 
 # Returns the current Hawaii time
 def getTime():
-    timezone.activate('Pacific/Honolulu')
+    #timezone.activate('Pacific/Honolulu')
     return timezone.localtime(timezone.now())
 
 
